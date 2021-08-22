@@ -8,10 +8,10 @@ With basic settings of module federation, url for a remote module needs to be sp
 
 # RemoteComponent Usage
 
-![remote component usage](https://imgur.com/5cL4Rel)
+![remote component usage](https://i.imgur.com/5cL4Rel.png)
 
 # useRemoteModule Usage
 
-![remote module usage](https://imgur.com/nT5yID0)
+![remote module usage](https://i.imgur.com/nT5yID0.png)
 
 Please keep in mind, any component taking advantage of useRemoteModule should be wrapped with React.Suspense
