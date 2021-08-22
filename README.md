@@ -12,7 +12,7 @@ With basic settings of module federation, url for a remote module needs to be sp
 
 # RemoteComponent Usage
 
-![remote component usage](https://i.imgur.com/5cL4Rel.png)
+![remote component usage](https://i.imgur.com/ArgZ7fH.png)
 
 # useRemoteModule Usage
 
