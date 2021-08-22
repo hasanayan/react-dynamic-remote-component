@@ -1024,7 +1024,7 @@
     core-js-pure "^3.16.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.5", "@babel/runtime@^7.15.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.15.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.3.tgz#2e1c2880ca118e5b2f9988322bd8a7656a32502b"
   integrity sha512-OvwMLqNXkCXSz1kSm58sEsNuhqOx/fKpnUnKnFB5v8uDda5bLNEHNgKPvhDN6IU0LDcnHQ90LlJ0Q6jnyBSIBA==
@@ -7764,6 +7764,13 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-dynamic-remote-component@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-dynamic-remote-component/-/react-dynamic-remote-component-0.0.1.tgz#6f1e03e0538f0555f4c0d4bb0dbb9fd892456003"
+  integrity sha512-B+XMIJYw537kBdRNgonNITcnNUxlqeoP4Qv3TkZgN3RX6XIvsqIihxlzKjYM4bgAE9l40FWR//ZsVaemgnO2uw==
+  dependencies:
+    "@babel/runtime" "^7.15.3"
 
 react-error-overlay@7.0.0-next.38+749a76d2:
   version "7.0.0-next.38"

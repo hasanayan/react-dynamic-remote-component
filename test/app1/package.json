@@ -17,6 +17,7 @@
     "nanoid": "^3.1.25",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dynamic-remote-component": "^0.0.1",
     "react-fast-compare": "^3.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "copyfile": "cp -R ../../src/ ./src/lib/",
-    "start": "npm run copyfile && craco start",
+    "start": " craco start",
     "build": "craco build",
     "serve": "npm run build && serve -s build -p 3000",
     "test": "react-scripts test",

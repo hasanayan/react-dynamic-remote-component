@@ -4,7 +4,7 @@ import {
   getModule,
   RemoteComponent,
   useRemoteModule,
-} from "./lib/RemoteComponent";
+} from "react-dynamic-remote-component";
 
 function App() {
   return (
