@@ -1,6 +1,7 @@
 # react-dynamic-remote-component
 
 Allows you to dynamically load a component from a remote using webpack 5's module federation.
+Created based on @ScripteAlchemy's [dynamic-system-host](https://github.com/module-federation/module-federation-examples/tree/master/dynamic-system-host) example
 
 # Motivation
 
