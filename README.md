@@ -10,6 +10,19 @@ Created based on @ScripteAlchemy's (Module Federation's creator, Zack Jackson) [
 
 With basic settings of module federation, url for a remote module needs to be specified during build-time. However, in some cases, it might be necessary to be able to specify remote module urls during runtime. This package allows you to load remote modules in general and React components from remotes that are specified during runtime.
 
+# Installation
+
+```
+npm install react-dynamic-remote-component --save
+```
+
+or
+
+```
+yarn add react-dynamic-remote-component
+```
+
+
 # RemoteComponent Usage
 
 ![remote component usage](https://i.imgur.com/ArgZ7fH.png)
