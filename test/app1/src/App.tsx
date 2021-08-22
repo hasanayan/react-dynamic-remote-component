@@ -16,7 +16,7 @@ function App() {
           module="./Button"
         />
       </React.Suspense>
-      <React.Suspense fallback="any">
+      <React.Suspense fallback="loading">
         <InnerApp />
       </React.Suspense>
     </>
