@@ -17,16 +17,20 @@ export const getModule = (remoteModule: RemoteModule) => {
 
   if (existingModule) return existingModule;
   else {
-    window.remoteModuleDictionary[id] = new Promise((resolve) => {
-      attachScript(remoteModule).then(() => {
-        resolve(
-          loadModule(
-            remoteModule.url,
-            remoteModule.scope,
-            remoteModule.module
-          )()
-        );
-      });
+    window.remoteModuleDictionary[id] = new Promise(async (resolve, reject) => {
+      try {
+        await attachScript(remoteModule);
+
+        const _module = await loadModule(
+          remoteModule.url,
+          remoteModule.scope,
+          remoteModule.module
+        )();
+
+        resolve(_module);
+      } catch (e) {
+        reject(e);
+      }
     });
     return window.remoteModuleDictionary[id];
   }

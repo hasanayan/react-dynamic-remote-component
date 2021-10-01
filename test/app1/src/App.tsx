@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Module from "module";
 import React, { memo, useEffect } from "react";
 import {
   getModule,
@@ -35,13 +36,20 @@ const remoteModule2 = {
   module: "./Button",
 };
 
-const InnerApp = memo(() => {
-  const t = useRemoteModule(remoteModule1);
-  const a = useRemoteModule(remoteModule2);
-  const b = useRemoteModule(remoteModule2);
-  const c = useRemoteModule(remoteModule2);
+getModule({
+  url: "http://localhost:3002/remoteEntry.js",
+  scope: "app2",
+  module: "./App",
+}).then(({ routes }: any) => {
+  //now I have access to the export named 'routes'
+});
 
-  console.log(b, t);
+const InnerApp = memo(() => {
+  // const t = useRemoteModule(remoteModule1);
+  // const a = useRemoteModule(remoteModule2);
+  // const b = useRemoteModule(remoteModule2);
+  // const c = useRemoteModule(remoteModule2);
+  console.log("render");
 
   return <></>;
 });
