@@ -8,6 +8,7 @@ import { getRemoteModuleId } from "./utils";
 export type RemoteComponentProps = RemoteModule & {
   unLoadScriptOnUnmount?: boolean;
   exportName?: "string";
+  props?: object;
 };
 
 export const getModule = (remoteModule: RemoteModule) => {
@@ -55,9 +56,10 @@ export const useRemoteModule = (remoteModule: RemoteModule) => {
 export const RemoteComponent: FC<RemoteComponentProps> = ({
   unLoadScriptOnUnmount = true,
   exportName = "default",
+  props = {},
   ...remoteModule
 }) => {
   const { [exportName]: Component } = getModuleSuspended(remoteModule);
 
-  return <Component />;
+  return <Component {...props}/>;
 };
