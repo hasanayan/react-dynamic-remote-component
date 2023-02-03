@@ -1,21 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Module from "module";
-import React, { memo, useEffect } from "react";
+import React, { memo, useState} from "react";
 import {
   getModule,
   RemoteComponent,
   useRemoteModule,
 } from "react-dynamic-remote-component";
+import Button from "./Button";
 
 function App() {
+  const [userName, setName] = useState("");
+  const nameEntry = <input value={userName} onChange={event=>setName(event.target.value)}/>
+  const HostButton = () => <Button name={userName}/>;
+  const RemoteButton = () => (
+  <RemoteComponent
+    url="http://localhost:3002/remoteEntry.js"
+    scope="app2"
+    module="./Button"
+  />
+  );
   return (
     <>
+      {nameEntry}
+      <HostButton/>
       <React.Suspense fallback="loading">
-        <RemoteComponent
-          url="http://localhost:3002/remoteEntry.js"
-          scope="app2"
-          module="./Button"
-        />
+        <RemoteButton/>
       </React.Suspense>
       <React.Suspense fallback="loading">
         <InnerApp />
