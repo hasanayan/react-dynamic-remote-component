@@ -18,7 +18,6 @@ function App() {
     scope="app2"
     module="./Button"
     name={userName}
-    //props={{name:"BBB"}}
   />
   );
   return (
