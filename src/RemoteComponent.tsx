@@ -5,10 +5,7 @@ import { RemoteModule } from "./types";
 import { suspend } from "./suspend";
 import { getRemoteModuleId } from "./utils";
 
-export type RemoteComponentProps = {
-  url: string;
-  scope: string;
-  module: string;
+export type RemoteComponentProps = RemoteModule & {
   unLoadScriptOnUnmount?: boolean;
   exportName?: string;
   [otherProps: string]: any;
