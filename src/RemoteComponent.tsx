@@ -5,11 +5,17 @@ import { RemoteModule } from "./types";
 import { suspend } from "./suspend";
 import { getRemoteModuleId } from "./utils";
 
-export type RemoteComponentProps = RemoteModule & {
+export type RemoteComponentPropsWithoutProps = {
+  url: string;
+  scope: string;
+  module: string;
   unLoadScriptOnUnmount?: boolean;
-  exportName?: "string";
-  //props?: object;
+  exportName?: string;
 };
+
+export type RemoteComponentProps = RemoteComponentPropsWithoutProps & {
+  [rest: string]: any;
+}
 
 export const getModule = (remoteModule: RemoteModule) => {
   window.remoteModuleDictionary = window.remoteModuleDictionary || {};
@@ -53,17 +59,23 @@ export const useRemoteModule = (remoteModule: RemoteModule) => {
   return getModuleSuspended(remoteModule);
 };
 
-export const RemoteComponent = (
-  props: any
+export const RemoteComponent: FC<RemoteComponentProps> = (
+  {
+    unLoadScriptOnUnmount=true,
+    exportName="default",
+    children,
+    url,
+    scope,
+    module,
+    ...props
+  }
   ) => {
-  const exportName = props.exportName ?? "default";
-  const {url, scope, module, ...rest} = props;
-  const remotemodule: RemoteModule = {
+  const remoteModule: RemoteModule = {
     url: url,
     scope: scope,
     module: module,
   };
-  const { [exportName]: Component } = getModuleSuspended(remotemodule);
+  const { [exportName]: Component } = getModuleSuspended(remoteModule);
 
-  return <Component {...rest}/>;
+  return <Component {...props}/>;
 };
