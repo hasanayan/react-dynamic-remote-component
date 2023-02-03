@@ -17,6 +17,7 @@ function App() {
     url="http://localhost:3002/remoteEntry.js"
     scope="app2"
     module="./Button"
+    props={{name : userName}}
   />
   );
   return (
