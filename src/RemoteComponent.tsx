@@ -8,7 +8,7 @@ import { getRemoteModuleId } from "./utils";
 export type RemoteComponentProps = RemoteModule & {
   unLoadScriptOnUnmount?: boolean;
   exportName?: "string";
-  props?: object;
+  //props?: object;
 };
 
 export const getModule = (remoteModule: RemoteModule) => {
@@ -53,13 +53,17 @@ export const useRemoteModule = (remoteModule: RemoteModule) => {
   return getModuleSuspended(remoteModule);
 };
 
-export const RemoteComponent: FC<RemoteComponentProps> = ({
-  unLoadScriptOnUnmount = true,
-  exportName = "default",
-  props = {},
-  ...remoteModule
-}) => {
-  const { [exportName]: Component } = getModuleSuspended(remoteModule);
+export const RemoteComponent = (
+  props: any
+  ) => {
+  const exportName = props.exportName ?? "default";
+  const {url, scope, module, ...rest} = props;
+  const remotemodule: RemoteModule = {
+    url: url,
+    scope: scope,
+    module: module,
+  };
+  const { [exportName]: Component } = getModuleSuspended(remotemodule);
 
-  return <Component {...props}/>;
+  return <Component {...rest}/>;
 };
