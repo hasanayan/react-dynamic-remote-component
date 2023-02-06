@@ -11,21 +11,20 @@ import Button from "./Button";
 function App() {
   const [userName, setName] = useState("");
   const nameEntry = <input value={userName} onChange={event=>setName(event.target.value)}/>
-  const HostButton = () => <Button name={userName}/>;
-  const RemoteButton = () => (
+  const RemoteButton = (props: any) => (
   <RemoteComponent
     url="http://localhost:3002/remoteEntry.js"
     scope="app2"
     module="./Button"
-    name={userName}
+    {...props}
   />
   );
   return (
     <>
       {nameEntry}
-      <HostButton/>
+      <Button name={userName}/>
       <React.Suspense fallback="loading">
-        <RemoteButton/>
+        <RemoteButton name={userName}/>
       </React.Suspense>
       <React.Suspense fallback="loading">
         <InnerApp />
