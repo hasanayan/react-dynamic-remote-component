@@ -1,8 +1,7 @@
-import { FC } from "react";
 import { attachScript } from "./attach-script";
 import { loadModule } from "./load-module";
-import { RemoteModule } from "./types";
 import { suspend } from "./suspend";
+import { RemoteModule } from "./types";
 import { getRemoteModuleId } from "./utils";
 
 export type RemoteComponentProps = RemoteModule & {
@@ -52,12 +51,21 @@ export const useRemoteModule = (remoteModule: RemoteModule) => {
   return getModuleSuspended(remoteModule);
 };
 
-export const RemoteComponent: FC<RemoteComponentProps> = ({
-  unLoadScriptOnUnmount = true,
-  exportName = "default",
-  ...remoteModule
-}) => {
-  const { [exportName]: Component } = getModuleSuspended(remoteModule);
+export function RemoteComponent<ExtraProps>(props: RemoteComponentProps) {
+  const {
+    unLoadScriptOnUnmount = true,
+    exportName = "default",
+    url,
+    scope,
+    module,
+    ...componentProps
+  } = props;
 
-  return <Component />;
-};
+  const { [exportName]: Component } = getModuleSuspended({
+    url,
+    scope,
+    module,
+  });
+
+  return <Component {...componentProps} />;
+}
