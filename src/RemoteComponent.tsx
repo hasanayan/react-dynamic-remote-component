@@ -51,7 +51,9 @@ export const useRemoteModule = (remoteModule: RemoteModule) => {
   return getModuleSuspended(remoteModule);
 };
 
-export function RemoteComponent<ExtraProps>(props: RemoteComponentProps) {
+export function RemoteComponent<ExtraProps>(
+  props: RemoteComponentProps & ExtraProps
+) {
   const {
     unLoadScriptOnUnmount = true,
     exportName = "default",
