@@ -23,6 +23,7 @@ export const loadModule = (url: string, scope: string, module: string) => {
         `There was a problem loading the remote module. Please check the parameters (url: ${url} scope: ${scope} module: ${module})`
       );
       error.name = "RemoteModuleLoadingError";
+      error.cause = e;
       throw error;
     }
   };
